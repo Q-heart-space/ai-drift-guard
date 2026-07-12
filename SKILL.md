@@ -46,7 +46,7 @@ license: MIT
 | **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题。🆕 对应最佳实践「只改一个关联扫描」+ PTN-21 反身性扫描 |
 | **S7** | User confirmed briefly ("yes"/"ok") | 用户简短确认("对""嗯") | ⚠️ Confirm intent, then act. / 确认意图后再动 |
 | **S8** | Multi-step task, skipping intermediate steps | 多步骤中途跳过中间步骤 | ⛔ Return to first incomplete step. / 回到未完成步骤 |
-| **S9** | User said "stop" / "停" mid-reply | 用户喊"停"，AI正在长篇回复 | ⛔ **HARD STOP.** Do NOT output any text — not even one character. Do NOT continue. Do NOT apologize. Do NOT explain. Do NOT summarize. Do NOT say "OK, stopping." Output literally NOTHING. / **硬截断。** 不输出任何文字——不解释、不道歉、不总结、不说"好的停了"、不用 emoji 替代。**什么都不输出。** |
+| **S9** | User said "stop" / "停" mid-reply | 用户喊"停"，AI正在长篇回复 | ⛔ **HARD STOP. Zero output.** End your response with NO characters — not even punctuation, not an emoji, not "OK stopping", not "已停止", not "got it". The next assistant turn after user says "stop"/"停" must be an empty response. / **硬截断。零输出。** 你的回复以 0 字符结束——没有标点，没有 emoji，没有"好的""已停""got it"。用户说"停"之后，下一轮 assistant 的回复必须是空的。 |
 | **S10** | Plan ≥3 phases OR ≥2 new files OR ≥5 steps | 方案≥3阶段/≥2文件/≥5步骤 | ⚠️ Output lightweight version first. / 先出轻量版。🆕 对应 同类模式「不跨会话·先轻量验证再全量」 |
 | **S11** | Fixed/patched a system file but NOT run `your project's sync-validation routine` within 5min | 修复了系统文件但5分钟内未跑闭环验证 | ⛔ Abort. Run `your project's sync-validation routine` first. / 先跑闭环验证再继续 |
 
