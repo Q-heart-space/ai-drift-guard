@@ -1,34 +1,6 @@
 # Changelog
 
-> **版本**：v1.2-ext | **类型**：📊 | **日期**：2026-07-12 | **状态**：活跃
-> **依赖**：—
-> **被依赖**：—
-> **变更**：v1.1→v1.2-ext 新增S11闭环信号·S4行为自包含化·便携式构建·新增MIT LICENSE·版本标记为-ext（与内部版区隔）
-> **用途**：AI-Drift-Guard 发布变更历史
-
----
-
 All notable changes to AI-Drift-Guard will be documented in this file.
-
----
-
-## [1.2.0-ext] — 2026-07-12
-
-### Added
-- **S11 signal**: fixed/patched a system file but no closure/sync-validation check → block. (Response generalized for portability — references your project's asset-repair / sync-validation routine instead of a space-specific tool.)
-- **MIT LICENSE** for public / multi-user distribution.
-- Portable build: removed space-specific references (constitution alignment, internal project cross-references, internal PTN codes) so the skill is reusable across spaces and by multiple people.
-- **S4 behavior self-containment**: "association scan" response expanded to a self-contained 7-step instruction (no longer depends on Q博士-specific "关联扫描" context).
-
-### Changed
-- Version marked as `-ext` to distinguish from the internal source-of-truth version (prevents 铁律AO version collision).
-- SKILL.md frontmatter: `version: 1.2.0-ext`; added `license: MIT`; removed space-specific routing fields (`layer`/`task_type`); kept `triggers` for portability.
-- README: added "About This Project" section with Q博士 narrative + 菩提心 statement.
-- Iteration history rewritten without internal PTN references.
-- README: fixed broken GitHub link (`Q博士` → `Q-heart-space`); added License badge; added LICENSE to file tree.
-
-### Note
-- This release is the **portable / Distribute** build (`v1.2.0-ext`). The full-context internal version (`v1.2.0` with constitution-alignment and project cross-references) remains the source of truth inside the Q博士 workspace and is not published. See `CHANGELOG_vs_internal.md` for version comparison.
 
 ---
 

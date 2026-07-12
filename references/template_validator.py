@@ -7,11 +7,6 @@ Usage:
 
 Returns exit code 0 on clean, 1 on leaked placeholders.
 """
-# > **版本**：v1.0 | **类型**：🧪 | **日期**：2026-07-01 | **状态**：活跃
-# > **依赖**：—
-# > **被依赖**：ai-drift-guard SKILL.md S5
-# > **变更**：v1.0 新建
-# > **用途**：AI-Drift-Guard S5 信号——模板占位符泄漏检测
 import re
 import sys
 
