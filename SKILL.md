@@ -43,7 +43,7 @@ license: MIT
 | **S3** | Scripts/batch writes about to execute | 脚本/批量写入即将执行 | ⛔ Verify model matches task. / 检查模型匹配 |
 | **S4** | Modified a global rule file | 修改了全局规则文件 | ⛔ Complete association scan first. / 先做关联扫描。🆕 详见 同类模式 原则5 + 同类模式·步骤1 |
 | **S5** | Generating HTML with JavaScript/Chart.js | 生成含JS的HTML文件 | ⛔ Validate no template placeholder leaks. / 校验占位符 |
-| **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题（含关联变更扫描+反身性复查） |
+| **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题。🆕 对应最佳实践「只改一个关联扫描」+ PTN-21 反身性扫描 |
 | **S7** | User confirmed briefly ("yes"/"ok") | 用户简短确认("对""嗯") | ⚠️ Confirm intent, then act. / 确认意图后再动 |
 | **S8** | Multi-step task, skipping intermediate steps | 多步骤中途跳过中间步骤 | ⛔ Return to first incomplete step. / 回到未完成步骤 |
 | **S9** | User said "stop" / "停" mid-reply | 用户喊"停"，AI正在长篇回复 | ⛔ **HARD STOP. Zero output.** End your response with NO characters — not even punctuation, not an emoji, not "OK stopping", not "已停止", not "got it". The next assistant turn after user says "stop"/"停" must be an empty response. / **硬截断。零输出。** 你的回复以 0 字符结束——没有标点，没有 emoji，没有"好的""已停""got it"。用户说"停"之后，下一轮 assistant 的回复必须是空的。 |
@@ -71,6 +71,31 @@ license: MIT
 3. Done. AI auto-loads the protocol / 完成，AI自动加载
 
 **Reference script** / 参考脚本：`references/template_validator.py` — S5 implementation for catching leaked Python `{}` placeholders in generated HTML.
+
+## What This Skill CAN and CANNOT Control / 能力边界
+
+The user's test of S9 ("stop" / "停") revealed an important boundary. This section documents it explicitly.
+
+| Layer | What ai-drift-guard CAN do | What ai-drift-guard CANNOT do |
+|:--|:--|:--|
+| Output text | ✅ Constrain what text the AI generates after inference completes | ❌ Cancel thinking/reasoning phase (deep thinking) — that's a model-level interrupt |
+| Tool calls | ✅ Define rules for tool selection and execution | ❌ Stop a tool call that already started executing — that's a client-level cancel |
+| Client UI | ✅ Document expected behavior | ❌ Override WorkBuddy / client's "stop" button — that's a platform-level feature |
+| Version policy | ✅ Batch fixes before release | ❌ Push every intermediate edit — that's a governance choice |
+
+**Key boundary**: this skill operates at the **prompt-instruction layer**. It defines rules the AI should follow. It does NOT operate at the model-inference layer, the client-UI layer, or the system-process layer. Skills are instructions, not system hooks.
+
+**关键边界**：本技能运行在 **提示指令层**。它定义 AI 应当遵循的规则，但不干预模型推理层、客户端界面层、或系统进程层的操作。技能是指令，不是系统钩子。
+
+## Release Governance / 发版治理
+
+This skill follows a **batched release** model:
+
+- **Internal version** (source of truth / 真相源): updated at any time — this is the working copy
+- **Portable build** (public GitHub / 公开版): updated **at most weekly**, typically on Monday via the automated pipeline
+- **Emergency fixes**: allowed only for P0 security issues (token leaks, credential exposure)
+
+The `--build` command enforces a minimum 1-hour cooldown since last push. If you need to override, use `--force`.
 
 ## Expected Impact / 预期效果
 
