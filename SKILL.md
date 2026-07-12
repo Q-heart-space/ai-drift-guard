@@ -110,7 +110,7 @@ The `--build` command enforces a minimum 1-hour cooldown since last push. If you
 | v1.0 | 2026-06 | 初始发布：10 条偏航信号 + 工程化 vs 渐进式 |
 | v1.1 | 2026-06 | 前端元数据修正 |
 | v1.2 | 2026-07-04 | S4/S6/S10 信号增强；新增 S11 闭环验证信号；新增关联项目清单 |
-| 🆕 v1.3 | 2026-07-12 | **S9 修复**：硬截断零输出（基于真实用户 Issue #1 反馈）；**新增 Limitations 节**：明确能力边界（提示指令层≠模型推理/客户端UI/系统进程层）；**新增 Release Governance 节**：batched release + 1h 冷却门禁；**Export Audit**：5 项出口审计脚本化；**描述修正**：删除不准确承诺"Reduces stop by 80%"
+| 🆕 v1.3 | 2026-07-12 | **S9 修复**：硬截断零输出（基于真实用户 Issue #1 反馈）；**新增 Limitations 节**：明确能力边界（提示指令层≠模型推理/客户端UI/系统进程层）；**新增 Release Governance 节**：batched release + 1h 冷却门禁；**Export Audit**：5 项出口审计脚本化；**描述修正**：删除不准确承诺"Reduces stop by 80%" |
 
 ---
 
