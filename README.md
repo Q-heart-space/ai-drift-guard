@@ -1,11 +1,5 @@
 # AI-Drift-Guard
 
-> **版本**：v1.2-ext | **类型**：📊 | **日期**：2026-07-12 | **状态**：活跃
-> **依赖**：—
-> **被依赖**：—
-> **变更**：v1.1→v1.2-ext 新增S11闭环信号·便携式构建(移除空间特定引用·行为自包含化)·新增MIT LICENSE
-> **用途**：AI-Drift-Guard 发布包说明——10条偏航信号自检协议·Q博士方法论对外试点
-
 [![Version](https://img.shields.io/badge/version-1.2.0_ext-orange)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Creator](https://img.shields.io/badge/creator-Q博士-orange)](https://github.com/Q-heart-space)

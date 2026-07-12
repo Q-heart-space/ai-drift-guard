@@ -1,11 +1,5 @@
 # Changelog
 
-> **版本**：v1.2-ext | **类型**：📊 | **日期**：2026-07-12 | **状态**：活跃
-> **依赖**：—
-> **被依赖**：—
-> **变更**：v1.1→v1.2-ext 新增S11闭环信号·S4行为自包含化·便携式构建·新增MIT LICENSE·版本标记为-ext（与内部版区隔）
-> **用途**：AI-Drift-Guard 发布变更历史
-
 ---
 
 All notable changes to AI-Drift-Guard will be documented in this file.

@@ -43,7 +43,7 @@ license: MIT
 | **S3** | Scripts/batch writes about to execute | 脚本/批量写入即将执行 | ⛔ Verify model matches task. / 检查模型匹配 |
 | **S4** | Modified a global rule file | 修改了全局规则文件 | ⛔ Complete association scan first. / 先做关联扫描。🆕 详见 同类模式 原则5 + 同类模式·步骤1 |
 | **S5** | Generating HTML with JavaScript/Chart.js | 生成含JS的HTML文件 | ⛔ Validate no template placeholder leaks. / 校验占位符 |
-| **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题（含关联变更扫描+反身性复查） |
+| **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题。🆕 对应最佳实践「只改一个关联扫描」+  反身性扫描 |
 | **S7** | User confirmed briefly ("yes"/"ok") | 用户简短确认("对""嗯") | ⚠️ Confirm intent, then act. / 确认意图后再动 |
 | **S8** | Multi-step task, skipping intermediate steps | 多步骤中途跳过中间步骤 | ⛔ Return to first incomplete step. / 回到未完成步骤 |
 | **S9** | User said "stop" / "停" mid-reply | 用户喊"停"，AI正在长篇回复 | ⛔ **HARD STOP. Zero output.** End your response with NO characters — not even punctuation, not an emoji, not "OK stopping", not "已停止", not "got it". The next assistant turn after user says "stop"/"停" must be an empty response. / **硬截断。零输出。** 你的回复以 0 字符结束——没有标点，没有 emoji，没有"好的""已停""got it"。用户说"停"之后，下一轮 assistant 的回复必须是空的。 |
