@@ -43,7 +43,7 @@ license: MIT
 | **S3** | Scripts/batch writes about to execute | 脚本/批量写入即将执行 | ⛔ Verify model matches task. / 检查模型匹配 |
 | **S4** | Modified a global rule file | 修改了全局规则文件 | ⛔ Complete association scan first. / 先做关联扫描。🆕 详见 同类模式 原则5 + 同类模式·步骤1 |
 | **S5** | Generating HTML with JavaScript/Chart.js | 生成含JS的HTML文件 | ⛔ Validate no template placeholder leaks. / 校验占位符 |
-| **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题。🆕 对应复盘指南「只改一个关联扫描」+ PTN-21 反身性扫描 |
+| **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题（含关联变更扫描+反身性复查） |
 | **S7** | User confirmed briefly ("yes"/"ok") | 用户简短确认("对""嗯") | ⚠️ Confirm intent, then act. / 确认意图后再动 |
 | **S8** | Multi-step task, skipping intermediate steps | 多步骤中途跳过中间步骤 | ⛔ Return to first incomplete step. / 回到未完成步骤 |
 | **S9** | User said "stop" / "停" mid-reply | 用户喊"停"，AI正在长篇回复 | ⛔ **Hard stop immediately.** Stop ALL pending tool calls. Output NO text (no summary, no analysis, no "shall I stop"). Abort mid-sentence if needed. / **硬截断。** 立即停止所有待执行的工具调用。不输出任何文字（不总结、不分析、不问"是否停止"）。即使句子写一半也要断掉。 |
@@ -84,7 +84,7 @@ license: MIT
 |:--|:--|:--|
 | v1.0 | 2026-06 | 初始发布：10 条偏航信号 + 工程化 vs 渐进式 |
 | v1.1 | 2026-06 | 前端元数据修正 |
-| 🆕 v1.2 | 2026-07-04 | S4/S6/S10 与 PTN-38/39 + 复盘指南互引用；新增关联项目清单 + 迭代记录 |
+| 🆕 v1.2 | 2026-07-04 | S4/S6/S10 信号增强（关联扫描+反身性+轻量化）；新增关联项目清单 + 迭代记录 |
 
 ---
 

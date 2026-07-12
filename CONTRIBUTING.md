@@ -1,9 +1,3 @@
-> **版本**：v1.0 | **类型**：📋 | **日期**：2026-07-12 | **状态**：活跃
-> **变更**：v1.0 首建——自动注入标准头（header_auto_inject·铁律AR R3 落地）
-> **依赖**：asset_health_check.py（豁免/目录策略真相源）
-> **被依赖**：每日22:00治理（health 前置步骤）
-> **用途**：本文件由 header_auto_inject 自动补头；请补充真实用途/依赖
-
 # Contributing / 参与指引
 
 感谢你关注 AI-Drift-Guard！这是 [**Q博士**](https://github.com/Q-heart-space) 方法论的首个对外试点。
