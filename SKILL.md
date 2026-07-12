@@ -1,10 +1,17 @@
 ---
 name: ai-drift-guard
 description: "AI-Drift-Guard / AI跑偏守卫：10-signal self-check protocol that catches AI drift before execution. 在AI写方案、生成文件、批量修改前自动扫描10种跑偏信号，发现即阻断。Prevents over-engineering (optimize-this-rule → 4-phase-migration), format-creep (check data → HTML report), scope-bloat (fix-one → fix-all). Reduces 'stop' commands by 80%. 安装后AI每次动手前先自检。"
-version: 1.1.0
+version: 1.2.0-ext
 agent_created: true
 creator: Q博士
+license: MIT
 tags: [guard, anti-drift, over-engineering, quality, self-check, bilingual]
+triggers:
+  - 跑偏自检
+  - 防跑偏
+  - AI跑偏守卫
+  - drift-guard
+  - 动手前自检
 ---
 
 # AI-Drift-Guard — AI跑偏自检协议 / Drift Self-Check Protocol
@@ -44,13 +51,14 @@ tags: [guard, anti-drift, over-engineering, quality, self-check, bilingual]
 | **S1** | User said "analyze/look/check" but did NOT ask for a file | 用户说"分析/看看"但没说要文件 | ⛔ Downgrade to text. / 降级为文字摘要 |
 | **S2** | User said "do it" but AI asks "shall I?" | 用户说"执行"但AI反问"可以吗？" | ⛔ Just execute. / 直接执行 |
 | **S3** | Scripts/batch writes about to execute | 脚本/批量写入即将执行 | ⛔ Verify model matches task. / 检查模型匹配 |
-| **S4** | Modified a global rule file | 修改了全局规则文件 | ⛔ Complete association scan first. / 先做关联扫描 |
+| **S4** | Modified a global rule file | 修改了全局规则文件 | ⛔ Self-contained association scan first / 先做全量关联扫描（含7步）：① Search all files for duplicates of the modified item; ② Check name/ID conflicts across the codebase; ③ Verify all referenced file paths exist; ④ Update cross-references that point to old content; ⑤ Flag any contradictory statements; ⑥ Check if downstream consumers need sync; ⑦ Log the scan result. Do NOT skip. |
 | **S5** | Generating HTML with JavaScript/Chart.js | 生成含JS的HTML文件 | ⛔ Validate no template placeholder leaks. / 校验占位符 |
 | **S6** | Fixed one issue, about to say "done" | 修了一个问题就说"完成了" | ⛔ Sweep for similar issues first. / 先扫同类问题 |
 | **S7** | User confirmed briefly ("yes"/"ok") | 用户简短确认("对""嗯") | ⚠️ Confirm intent, then act. / 确认意图后再动 |
 | **S8** | Multi-step task, skipping intermediate steps | 多步骤中途跳过中间步骤 | ⛔ Return to first incomplete step. / 回到未完成步骤 |
 | **S9** | User said "stop" / "停" mid-reply | 用户喊"停"，AI正在长篇回复 | ⛔ Cut off immediately. No analysis. / 立即截断 |
 | **S10** | Plan ≥3 phases OR ≥2 new files OR ≥5 steps | 方案≥3阶段/≥2文件/≥5步骤 | ⚠️ Output lightweight version first. / 先出轻量版 |
+| **S11** | Fixed/patched a system file but did NOT run a closure/sync-validation check | 修复了系统文件但未跑闭环验证 | ⛔ Abort. Run your project's asset-repair / sync-validation routine (or equivalent closure check) first. / 先跑闭环验证再继续 |
 
 ## Engineering vs. Gradualism / 工程化 vs 渐进式
 
@@ -79,6 +87,16 @@ tags: [guard, anti-drift, over-engineering, quality, self-check, bilingual]
 - "Stop" commands reduced by 50%+ / 喊停次数减少50%+
 - Over-engineered plans: near zero / 过度工程化方案：趋近零
 - Every self-block logged for retrospective / 每次自阻断记录到日志
+
+## Iteration History / 迭代记录
+
+| 版本 | 日期 | 变更 |
+|:--|:--|:--|
+| v1.0 | 2026-06 | 初始发布：10 条偏航信号 + 工程化 vs 渐进式 |
+| v1.1 | 2026-06 | 双语描述 + 版本追踪 + 工程/渐进决策表 |
+| v1.2 | 2026-07-04 | 新增 S11 闭环验证信号；便携式构建（移除空间特定引用，适配跨空间/多人复用）；新增 MIT LICENSE |
+
+---
 
 ## Credits / 致谢
 
