@@ -1,7 +1,7 @@
 ---
 name: ai-drift-guard
-description: "AI-Drift-Guard / AI跑偏守卫：10-signal self-check protocol that catches AI drift before execution. 在AI写方案、生成文件、批量修改前自动扫描10种跑偏信号，发现即阻断。Prevents over-engineering (optimize-this-rule → 4-phase-migration), format-creep (check data → HTML report), scope-bloat (fix-one → fix-all). Reduces 'stop' commands by 80%. 安装后AI每次动手前先自检。"
-version: 1.2.0-ext
+description: "AI-Drift-Guard / AI跑偏守卫：10-signal self-check protocol that catches AI drift before execution. Prevents over-engineering, format-creep, scope-bloat, and unverified fixes. 安装后AI每次动手前先自检。\n⚠️ 能力边界：本技能约束AI输出文本，不干预模型推理/客户端UI/系统进程层。详见 Limitations 节。"
+version: 1.3.0-ext
 agent_created: true
 creator: Q博士
 tags: [guard, anti-drift, over-engineering, quality, self-check, bilingual]
@@ -18,8 +18,8 @@ license: MIT
 | "Do it" → AI asks "Shall I?" | "执行" → 它反问"可以吗？" |
 | "Stop" → AI keeps writing | "停" → 它还在继续输出 |
 
-**EN: Root cause: AI's default tendency is "go maximal". This skill self-checks BEFORE acting — no need to yell "stop".**
-**中：根因：AI的默认倾向是"做重做全"。这个技能在AI动手之前先自检——不用你喊停。**
+**EN: Root cause: AI's default tendency is "go maximal". This skill self-checks BEFORE acting.**
+**中：根因：AI的默认倾向是"做重做全"。这个技能在AI动手之前先自检。**
 
 ## When It Triggers / 触发时机
 
@@ -99,8 +99,8 @@ The `--build` command enforces a minimum 1-hour cooldown since last push. If you
 
 ## Expected Impact / 预期效果
 
-- "Stop" commands reduced by 50%+ / 喊停次数减少50%+
 - Over-engineered plans: near zero / 过度工程化方案：趋近零
+- Scope-creep and format-creep caught before execution / 范围蔓延和格式蔓延在动手前被阻断
 - Every self-block logged for retrospective / 每次自阻断记录到日志
 
 ## 🆕 迭代记录
@@ -109,7 +109,8 @@ The `--build` command enforces a minimum 1-hour cooldown since last push. If you
 |:--|:--|:--|
 | v1.0 | 2026-06 | 初始发布：10 条偏航信号 + 工程化 vs 渐进式 |
 | v1.1 | 2026-06 | 前端元数据修正 |
-| 🆕 v1.2 | 2026-07-04 | S4/S6/S10 与 同类模式 + 最佳实践互引用；新增关联项目清单 + 迭代记录 |
+| v1.2 | 2026-07-04 | S4/S6/S10 信号增强；新增 S11 闭环验证信号；新增关联项目清单 |
+| 🆕 v1.3 | 2026-07-12 | **S9 修复**：硬截断零输出（基于真实用户 Issue #1 反馈）；**新增 Limitations 节**：明确能力边界（提示指令层≠模型推理/客户端UI/系统进程层）；**新增 Release Governance 节**：batched release + 1h 冷却门禁；**Export Audit**：5 项出口审计脚本化；**描述修正**：删除不准确承诺"Reduces stop by 80%"
 
 ---
 
