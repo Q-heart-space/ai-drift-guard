@@ -6,6 +6,10 @@ agent_created: true
 creator: Q博士
 tags: [guard, anti-drift, over-engineering, quality, self-check, bilingual]
 triggers: 
+space_scope: universal
+cross_space_compatible: yes
+distribute_external: yes
+trust_level: auto
 license: MIT
 ---
 
